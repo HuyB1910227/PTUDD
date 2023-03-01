@@ -9,26 +9,31 @@ class FavoriteItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints.expand(
-        height: 200,
-        width: 100
+        height: 160,
+        width: 150,
       ),
       decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/mag1.png'),
-            fit: BoxFit.cover
-          ),
-        borderRadius: BorderRadius.all(Radius.circular(10.0))
-      ),
+              image: AssetImage('assets/mag1.png'), fit: BoxFit.cover),
+          borderRadius: BorderRadius.all(Radius.circular(10.0))),
       child: Stack(
+        alignment: Alignment.center,
         children: [
-          Text(
-            title,
+          Positioned(
+            bottom: 30,
+            child: Text(
+              title,
+              style: const TextStyle(color: Colors.white),
+            ),
           ),
-          Text(
-            tourist,
+          Positioned(
+            bottom: 10,
+            child: Text(
+              tourist,
+              style: const TextStyle(color: Colors.white),
+            ),
           ),
-        ]
-        
+        ],
       ),
     );
   }
