@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/colors.dart';
+import 'package:hukotravel/ui/main_screen.dart';
 
-import 'ui/home/home_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
           secondary: Colors.deepOrange,
         )
       ),
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }

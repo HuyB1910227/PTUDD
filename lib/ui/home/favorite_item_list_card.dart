@@ -14,12 +14,7 @@ class FavoritItemListCard extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const SearchBar(),
-        Container(
+    return Container(
           padding: const EdgeInsets.all(10.0),
           height: 170,
           child: ListView.separated(
@@ -33,8 +28,6 @@ class FavoritItemListCard extends StatelessWidget {
             },
             itemCount: _itemlist.length,
           ),
-        ),
-      ],
-    );
+        );
   }
 }

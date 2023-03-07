@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hukotravel/ui/home/favorite_item_list_card.dart';
 import 'search.dart';
 import 'favorite_item_card.dart';
+import './discover_more_grid.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,13 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
-  static final List<Widget> _page = <Widget>[
-    FavoritItemListCard(),
-    Container(color: Colors.green),
-    Container(color: Colors.blue),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,31 +20,43 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('HuKoTravel'),
         actions: <Widget>[buildBookingIcon(), buildRingIcon()],
       ),
-      body: _page[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.pink,
-        unselectedItemColor: Colors.grey,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
-            label: 'Yêu thích',
+      body: ListView(
+        children: [
+          const SearchBar(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+                child: const Text("Địa điểm yêu thích",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Khám phá',
+          FavoritItemListCard(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Text>[
+                Text("Khám phá thêm",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'Hồ sơ',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: (index) => setState(
-          () {
-            _selectedIndex = index;
-          },
+          
+            
         ),
-      ),
+
+          //ex-discovery
+          const DiscoverMore()
+          
+        ],
+      )
     );
   }
 

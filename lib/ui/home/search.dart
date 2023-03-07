@@ -7,13 +7,12 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: const TextField(
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: TextField(
             decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: '🔎 Tìm kiếm',
-            
+            labelText: '🔎 Tìm kiếm', 
           ),
         ),
       ),
