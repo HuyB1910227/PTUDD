@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/model/place.dart';
+import 'package:hukotravel/ui/detail/detai_place_screen.dart';
 import 'package:hukotravel/ui/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -9,16 +11,15 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-   int _selectedIndex = 0;
+  int _selectedIndex = 0;
   static final List<Widget> _page = <Widget>[
     // Container(color: Colors.red),
-    Container(color: Colors.green),
+    DetailPlaceScreen(place: Place.samples[0]),
     HomeScreen(),
     Container(color: Colors.blue),
   ];
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: _page[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
