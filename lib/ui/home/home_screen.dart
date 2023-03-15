@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hukotravel/ui/home/favorite_item_list_card.dart';
 import 'search.dart';
-import 'favorite_item_card.dart';
+// import 'favorite_item_card.dart';
 import './discover_more_grid.dart';
+import './guide_card_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,13 +49,25 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          
-            
         ),
-
           //ex-discovery
-          const DiscoverMore()
-          
+          const DiscoverMore(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Text>[
+                Text("Cẩm nang du lịch",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
+            ),
+          ),
+          //--guide card
+          GuideListCard(),
         ],
       )
     );

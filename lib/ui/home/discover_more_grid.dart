@@ -9,43 +9,45 @@ class DiscoverMore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: Container(
-              // color: Colors.red,
-              height: 400,
-              child: Card2(),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: Container(
-              // color: Colors.blue,
-              height: 400,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Container(
-                      
-                      child: Card2(),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      child: const Card1(),
-                    ),
-                  ),
-                ],
+    return Padding(
+      padding: const EdgeInsets.all(6.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container(
+                // color: Colors.red,
+                height: 400,
+                child: const Card2(),
               ),
             ),
           ),
-        ),
-      ],
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container(
+                // color: Colors.blue,
+                height: 400,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: Card2(),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: const Card1(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

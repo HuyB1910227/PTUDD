@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hukotravel/ui/home/home_screen.dart';
+import 'package:hukotravel/ui/tours/tour_overview_screen.dart';
+
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,7 +15,8 @@ class _MainScreenState extends State<MainScreen> {
   static final List<Widget> _page = <Widget>[
     // Container(color: Colors.red),
     Container(color: Colors.green),
-    HomeScreen(),
+    TourOverviewScreen(),
+    // HomeScreen(),
     Container(color: Colors.blue),
   ];
   @override

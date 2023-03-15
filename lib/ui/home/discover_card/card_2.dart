@@ -24,7 +24,7 @@ class Card2 extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: () {
-            print("Grid");
+            print("Tile");
           },
           child: Column(
             children: <Widget>[
@@ -40,15 +40,18 @@ class Card2 extends StatelessWidget {
                     ),
                 ),
               ),
-              const Padding(
-                padding:EdgeInsets.only(left: 8.0, right: 8.0, top: 5.0),
-                child: Text(
-                  "Lưu trú ngày dài",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding:EdgeInsets.only(left: 8.0, right: 8.0, top: 5.0),
+                  child: Text(
+                    "Lưu trú ngày dài",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18
+                    ),
+                    textAlign: TextAlign.left,
                   ),
-                  textAlign: TextAlign.left,
                 ),
               ),
               const Padding(
