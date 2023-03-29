@@ -10,7 +10,7 @@ class TourManager {
       endDate: DateTime(2023, 03, 18), 
       price: 7000000, 
       slot: 6,
-
+      isFavorite: false,
     ),
     Tour(
       id: 'Z839-J726',
@@ -19,7 +19,8 @@ class TourManager {
       startDate: DateTime(2023, 03, 12), 
       endDate: DateTime(2023, 03, 18), 
       price: 7000000, 
-      slot: 6
+      slot: 6,
+      isFavorite: true,
     ),
     Tour(
       id: 'Z839-J726',
@@ -28,7 +29,8 @@ class TourManager {
       startDate: DateTime(2023, 03, 12), 
       endDate: DateTime(2023, 03, 18), 
       price: 7000000, 
-      slot: 6
+      slot: 6,
+      isFavorite: false,
     ),
     Tour(
       id: 'Z839-J726',
@@ -37,7 +39,8 @@ class TourManager {
       startDate: DateTime(2023, 03, 12), 
       endDate: DateTime(2023, 03, 18), 
       price: 7000000, 
-      slot: 6
+      slot: 6,
+      isFavorite: true,
     )
   ];
 

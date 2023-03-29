@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../model/place.dart';
+import '../../models/place.dart';
 
 class DetailPlaceScreen extends StatelessWidget {
   final Place place;
@@ -18,7 +18,7 @@ class DetailPlaceScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             alignment: Alignment.center,
             child: Text(
               "Du lịch " + place.name,

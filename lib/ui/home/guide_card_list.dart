@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hukotravel/ui/home/guide_card.dart';
+import 'guide_card.dart';
 
 
 class GuideListCard extends StatelessWidget {

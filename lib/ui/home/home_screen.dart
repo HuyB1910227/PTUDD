@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hukotravel/ui/home/favorite_item_list_card.dart';
+import 'favorite_item_list_card.dart';
 import 'search.dart';
-// import 'favorite_item_card.dart';
-import './discover_more_grid.dart';
-import './guide_card_list.dart';
+import 'discover_more_grid.dart';
+import 'guide_card_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,19 +36,19 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           FavoritItemListCard(),
           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const <Text>[
-                Text("Khám phá thêm",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const <Text>[
+                  Text("Khám phá thêm",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
           //ex-discovery
           const DiscoverMore(),
           Padding(

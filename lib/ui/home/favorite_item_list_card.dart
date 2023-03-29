@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hukotravel/ui/home/favorite_item_card.dart';
-import 'package:hukotravel/ui/home/search.dart';
+import 'favorite_item_card.dart';
+
 
 class FavoritItemListCard extends StatelessWidget {
   FavoritItemListCard({super.key});

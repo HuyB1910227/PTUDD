@@ -3,12 +3,16 @@ import 'tour_grid_tile.dart';
 import 'tours_manager.dart';
 
 class ToursGrid extends StatelessWidget {
-  const ToursGrid({super.key});
+  final bool showFavorites;
+  const ToursGrid(
+    this.showFavorites,
+    {super.key}
+  );
 
   @override
   Widget build(BuildContext context) {
     final tourManager = TourManager();
-    final tours = tourManager.items;
+    final tours = showFavorites ? tourManager.favoriteItems : tourManager.items;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GridView.builder(

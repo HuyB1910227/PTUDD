@@ -1,4 +1,3 @@
-
 class Tour {
   final String? id;
   final String title;
@@ -40,6 +39,5 @@ class Tour {
     isFavorite: isFavorite ?? this.isFavorite
     );
   }
-    
 
 }

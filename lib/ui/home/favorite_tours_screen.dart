@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import '../tours/tour_gird.dart';
 
-class TourOverviewScreen extends StatefulWidget {
+class FavoriteToursScreen extends StatefulWidget {
   static const routeName = '/tour-items';
 
-  const TourOverviewScreen({super.key});
+  const FavoriteToursScreen({super.key});
 
   @override
-  State<TourOverviewScreen> createState() => _TourOverviewScreenState();
+  State<FavoriteToursScreen> createState() => _FavoriteToursScreenState();
 }
 
-class _TourOverviewScreenState extends State<TourOverviewScreen> {
+class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _TourOverviewScreenState extends State<TourOverviewScreen> {
         title: const Text('HuKoTravel'),
         actions: <Widget>[buildBookingIcon(), buildRingIcon()],
       ),
-      body: const ToursGrid(false),
+      body: const ToursGrid(true),
     );
 
   }
@@ -40,6 +40,7 @@ class _TourOverviewScreenState extends State<TourOverviewScreen> {
         },
         icon: const Icon(
           Icons.notifications_none_outlined,
-        ));
+        )
+      );
   }
 }

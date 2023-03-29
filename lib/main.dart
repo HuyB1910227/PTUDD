@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hukotravel/ui/main_screen.dart';
+import 'ui/main_screen.dart';
+import 'ui/tours/tour_overview_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       title: 'HuKoTravel',
       debugShowCheckedModeBanner: false,
@@ -22,6 +24,15 @@ class MyApp extends StatelessWidget {
         )
       ),
       home: const MainScreen(),
+      onGenerateRoute: (settings) {
+        if(settings.name == TourOverviewScreen.routeName) {
+          return MaterialPageRoute(
+            builder: (ctx) {
+              return const TourOverviewScreen();
+            }
+          );
+        }
+      },
     );
   }
 }

@@ -11,7 +11,7 @@ class Card1 extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/mag1.png'), fit: BoxFit.cover),
+              image: AssetImage('assets/hanhtrinh.jpg'), fit: BoxFit.cover),
             borderRadius: BorderRadius.all(Radius.circular(5.0))),
           child: Stack(
             alignment: Alignment.center,

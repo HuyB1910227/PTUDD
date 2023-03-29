@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hukotravel/model/place.dart';
-import 'package:hukotravel/ui/detail/detai_place_screen.dart';
+import '../models/place.dart';
+import 'package:hukotravel/ui/detail/detail_place_screen.dart';
+import 'package:hukotravel/ui/home/favorite_tours_screen.dart';
 import 'package:hukotravel/ui/home/home_screen.dart';
+import 'package:hukotravel/ui/profile/profile_overview_screen.dart';
 import 'package:hukotravel/ui/tours/tour_overview_screen.dart';
-import '../model/place.dart';
+import '../models/place.dart';
 
 class MainScreen extends StatefulWidget {
+  static const routeName = '/';
   const MainScreen({super.key});
 
   @override
@@ -15,11 +18,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _page = <Widget>[
-    // Container(color: Colors.red),
-    // Container(color: Colors.green),
-    DetailPlaceScreen(place: Place.samples[0]),
-    HomeScreen(),
-    Container(color: Colors.blue),
+    const FavoriteToursScreen(),
+    const HomeScreen(),
+    // DetailPlaceScreen(place: Place.samples[0]),
+    const ProfileOverviewScreen(),
+    
   ];
   @override
   Widget build(BuildContext context) {

@@ -115,8 +115,8 @@ class TourGridTile extends StatelessWidget {
           onPressed: () {
             print("favorite");
           },
-          icon: const Icon(
-            Icons.favorite_border_outlined,
+          icon: Icon(
+            tour.isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
             color: Colors.red,
           )
         ),
