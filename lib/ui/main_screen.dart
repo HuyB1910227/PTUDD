@@ -6,6 +6,7 @@ import 'package:hukotravel/ui/home/home_screen.dart';
 import 'package:hukotravel/ui/profile/profile_overview_screen.dart';
 import 'package:hukotravel/ui/tours/tour_overview_screen.dart';
 import '../models/place.dart';
+import './tours/tour_detail_screen.dart';
 
 class MainScreen extends StatefulWidget {
   static const routeName = '/';
@@ -18,11 +19,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _page = <Widget>[
-    const FavoriteToursScreen(),
+    TourDetailScreen(),
+    // const FavoriteToursScreen(),
     const HomeScreen(),
-    // DetailPlaceScreen(place: Place.samples[0]),
     const ProfileOverviewScreen(),
-    
   ];
   @override
   Widget build(BuildContext context) {
