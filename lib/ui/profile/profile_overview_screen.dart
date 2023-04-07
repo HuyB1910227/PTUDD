@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/ui/auth/auth_manager.dart';
 import 'package:hukotravel/ui/shared/circle_image.dart';
+import 'package:provider/provider.dart';
 
 class ProfileOverviewScreen extends StatelessWidget {
   const ProfileOverviewScreen({super.key});
@@ -49,7 +51,7 @@ class ProfileOverviewScreen extends StatelessWidget {
                       // width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          print("Đã click đăng xuất");
+                          context.read<AuthManager>().logout();
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 243, 4, 4)),

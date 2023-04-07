@@ -44,7 +44,7 @@ class TourGridTile extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        padding: EdgeInsets.all(2.0),
+                        padding: const EdgeInsets.all(2.0),
                         child: Text(
                           tour.title,
                           style: const TextStyle(
@@ -55,16 +55,16 @@ class TourGridTile extends StatelessWidget {
                     ),
                     // const SizedBox(height: 5.0),
       
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Text(
-                          'Khởi hành ${DateFormat('dd/MM/yyyy hh:mm').format(tour.startDate)}',
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                    ),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: Container(
+                    //     padding: const EdgeInsets.all(2.0),
+                    //     child: Text(
+                    //       'Khởi hành ${DateFormat('dd/MM/yyyy hh:mm').format(tour.startDate)}',
+                    //       textAlign: TextAlign.left,
+                    //     ),
+                    //   ),
+                    // ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Container(

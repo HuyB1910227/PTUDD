@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../tours/tour_gird.dart';
+import '../tours/tour_grid.dart';
 
 class FavoriteToursScreen extends StatefulWidget {
   static const routeName = '/tour-items';

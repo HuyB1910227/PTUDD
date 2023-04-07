@@ -11,7 +11,7 @@ class ToursGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tourManager = TourManager();
+    final tourManager = ToursManager();
     final tours = showFavorites ? tourManager.favoriteItems : tourManager.items;
     return Padding(
       padding: const EdgeInsets.all(8.0),
