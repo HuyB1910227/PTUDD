@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../tours/tour_grid.dart';
 
 class FavoriteToursScreen extends StatefulWidget {
-  static const routeName = '/tour-items';
+  static const routeName = '/tour-favorites';
 
   const FavoriteToursScreen({super.key});
 
@@ -20,7 +20,6 @@ class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
       ),
       body: const ToursGrid(true),
     );
-
   }
 
   Widget buildBookingIcon() {
@@ -40,7 +39,6 @@ class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
         },
         icon: const Icon(
           Icons.notifications_none_outlined,
-        )
-      );
+        ));
   }
 }

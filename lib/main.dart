@@ -11,59 +11,60 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => AuthManager()
-        ),
-        ChangeNotifierProvider(
-          create: (context) => ToursManager()
+        ChangeNotifierProvider(create: (context) => AuthManager()),
+        ChangeNotifierProxyProvider<AuthManager, ToursManager>(
+          create: (context) => ToursManager(),
+          update: (ctx, authManager, toursManager) {
+            toursManager!.authToken = authManager.authToken;
+            return toursManager;
+          },
         ),
       ],
       child: Consumer<AuthManager>(
         builder: (ctx, authManager, child) {
           return MaterialApp(
-          title: 'HuKoTravel',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSwatch(
+            title: 'HuKoTravel',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+                colorScheme: ColorScheme.fromSwatch(
               primarySwatch: Colors.pink,
             ).copyWith(
               secondary: Colors.deepOrange,
-            )
-          ),
-          
-          home: authManager.isAuth ? const MainScreen() : FutureBuilder(
-            builder: (ctx, snapshot) {
-              return snapshot.connectionState == ConnectionState.waiting ? const SplashScreen() : const AuthScreen();
-            }),
-          // const MainScreen(),
-          routes: {
-            TourOverviewScreen.routeName:
-              (cxt) => const TourOverviewScreen(),
-          },
-          // onGenerateRoute: (settings) {
-          //   if(settings.name == TourOverviewScreen.routeName) {
-          //     return MaterialPageRoute(
-          //       builder: (context) {
-          //         return const TourOverviewScreen();
-          //       }
-          //     );
-          //   }
-          // },
-        );
+            )),
+
+            home: authManager.isAuth
+                ? const MainScreen()
+                : FutureBuilder(builder: (ctx, snapshot) {
+                    return snapshot.connectionState == ConnectionState.waiting
+                        ? const SplashScreen()
+                        : const AuthScreen();
+                  }),
+            // const MainScreen(),
+            routes: {
+              TourOverviewScreen.routeName: (context) =>
+                  const TourOverviewScreen(),
+            },
+            // onGenerateRoute: (settings) {
+            //   if(settings.name == TourOverviewScreen.routeName) {
+            //     return MaterialPageRoute(
+            //       builder: (context) {
+            //         return const TourOverviewScreen();
+            //       }
+            //     );
+            //   }
+            // },
+          );
         },
-        // child: 
+        // child:
       ),
     );
   }
 }
-

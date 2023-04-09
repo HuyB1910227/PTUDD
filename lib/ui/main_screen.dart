@@ -17,9 +17,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   static final List<Widget> _page = <Widget>[
-    TourDetailScreen(),
+    const TourDetailScreen(),
     // const FavoriteToursScreen(),
     const HomeScreen(),
     const ProfileOverviewScreen(),

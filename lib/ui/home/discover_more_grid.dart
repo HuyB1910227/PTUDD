@@ -3,7 +3,6 @@ import 'discover_card/card_1.dart';
 import 'discover_card/card_2.dart';
 import 'discover_card/card_3.dart';
 
-
 class DiscoverMore extends StatelessWidget {
   const DiscoverMore({super.key});
 
@@ -15,11 +14,11 @@ class DiscoverMore extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(2.0),
               child: Container(
                 // color: Colors.red,
                 height: 400,
-                child: Card2(),
+                child: const Card2(),
               ),
             ),
           ),
