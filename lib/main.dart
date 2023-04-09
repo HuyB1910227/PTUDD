@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hukotravel/ui/profile/about.dart';
+import 'package:hukotravel/ui/profile/question.dart';
 import 'package:hukotravel/ui/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'ui/main_screen.dart';
@@ -47,8 +49,9 @@ class MyApp extends StatelessWidget {
             }),
           // const MainScreen(),
           routes: {
-            TourOverviewScreen.routeName:
-              (cxt) => const TourOverviewScreen(),
+            TourOverviewScreen.routeName: (cxt) => const TourOverviewScreen(),
+            About.routeName: (cxt) => const About(),
+            Question.routeName: (cxt) => const Question(),
           },
           // onGenerateRoute: (settings) {
           //   if(settings.name == TourOverviewScreen.routeName) {
