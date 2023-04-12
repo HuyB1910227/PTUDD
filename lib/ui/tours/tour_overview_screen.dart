@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'tour_grid.dart';
 import '../screens.dart';
 import 'package:provider/provider.dart';
+
 class TourOverviewScreen extends StatefulWidget {
   static const routeName = '/tour-items';
-  
 
   const TourOverviewScreen({super.key});
 
@@ -20,27 +19,29 @@ class _TourOverviewScreenState extends State<TourOverviewScreen> {
     super.initState();
     _fetchTours = context.read<ToursManager>().fetchTours();
   }
-  // @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('HuKoTravel'),
-        actions: <Widget>[buildBookingIcon(), buildRingIcon()],
+        actions: <Widget>[
+          buildBookingIcon(),
+          buildRingIcon(),
+        ],
       ),
       body: FutureBuilder(
-        future: _fetchTours,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return const ToursGrid(false);
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      ),
+          future: _fetchTours,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return const ToursGrid(false);
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }),
       // body: const ToursGrid(false),
     );
-
   }
 
   Widget buildBookingIcon() {

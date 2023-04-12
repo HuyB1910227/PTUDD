@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/models/tour.dart';
+import 'package:provider/provider.dart';
 import 'tour_grid_tile.dart';
 import 'tours_manager.dart';
 
@@ -11,8 +13,10 @@ class ToursGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tourManager = ToursManager();
-    final tours = showFavorites ? tourManager.favoriteItems : tourManager.items;
+    final tours = context.select<ToursManager, List<Tour>>(
+      (toursManager) => showFavorites 
+      ? toursManager.favoriteItems
+      : toursManager.items);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GridView.builder(

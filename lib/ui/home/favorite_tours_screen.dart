@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/ui/screens.dart';
 import '../tours/tour_grid.dart';
-
+import 'package:provider/provider.dart';
 class FavoriteToursScreen extends StatefulWidget {
-  static const routeName = '/tour-items';
+  static const routeName = '/tour-favorites';
 
   const FavoriteToursScreen({super.key});
 
@@ -11,6 +12,13 @@ class FavoriteToursScreen extends StatefulWidget {
 }
 
 class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
+  late Future<void> _fetchTours;
+  @override
+  void initState() {
+    super.initState();
+    _fetchTours = context.read<ToursManager>().fetchTours();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +26,18 @@ class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
         title: const Text('HuKoTravel'),
         actions: <Widget>[buildBookingIcon(), buildRingIcon()],
       ),
-      body: const ToursGrid(true),
+      body: FutureBuilder(
+          future: _fetchTours,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return const ToursGrid(true);
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+      }),
+      // body: const ToursGrid(true),
     );
-
   }
 
   Widget buildBookingIcon() {
@@ -33,6 +50,7 @@ class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
         ));
   }
 
+
   Widget buildRingIcon() {
     return IconButton(
         onPressed: () {
@@ -40,7 +58,6 @@ class _FavoriteToursScreenState extends State<FavoriteToursScreen> {
         },
         icon: const Icon(
           Icons.notifications_none_outlined,
-        )
-      );
+        ));
   }
 }

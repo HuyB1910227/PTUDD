@@ -4,7 +4,7 @@ import '../../services/tours_service.dart';
 import 'package:flutter/foundation.dart';
 class ToursManager with ChangeNotifier {
   final ToursService _toursService;
- List<Tour> _items = [
+  List<Tour> _items = [
     // Tour(
     //   id: 'Z839-J726',
     //   title: 'Tour Miền Nam', 
@@ -57,7 +57,6 @@ class ToursManager with ChangeNotifier {
   set authToken(AuthToken? authToken) {
     _toursService.authToken = authToken;
   }
-
   Future<void> fetchTours() async {
     _items = await _toursService.fetchTours();
     print(itemCount);
@@ -66,7 +65,7 @@ class ToursManager with ChangeNotifier {
   int get itemCount {
     return _items.length;
   }
-
+  
   List<Tour> get items {
     return [..._items];
   }
@@ -75,13 +74,19 @@ class ToursManager with ChangeNotifier {
     return _items.where((item) => item.isFavorite).toList();
   }
 
-  
   Future<void> toggleFavoriteStatus(Tour tour) async {
     final savedStatus = tour.isFavorite;
     tour.isFavorite = !savedStatus;
-
     if (!await _toursService.saveFavoriteStatus(tour)) {
       tour.isFavorite = savedStatus;
     }  
+  }
+
+  Tour? findById(String id) {
+    try {
+      return _items.firstWhere((element) => element.id == id);
+    } catch (error) {
+      return null;
+    }
   }
 }

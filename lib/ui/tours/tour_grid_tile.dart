@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/ui/order/order_tour.dart';
+import 'package:hukotravel/ui/screens.dart';
+import 'package:provider/provider.dart';
 import '../../models/tour.dart';
 import 'package:intl/intl.dart';
 
@@ -27,7 +30,10 @@ class TourGridTile extends StatelessWidget {
           header: buildGridHeaderBar(context),
           child: GestureDetector(
               onTap: () {
-                print("click tour");
+                print("tour 1111111");
+                // Navigator.of(context).pushNamed(
+                //   OrderTourScreen.routeName,
+                // );
               },
               child: Container(
                 color: Colors.white,
@@ -41,6 +47,7 @@ class TourGridTile extends StatelessWidget {
                       ),
                     ),
                     // const SizedBox(height: 8.0),
+                    
                     Align(
                       alignment: Alignment.center,
                       child: Container(
@@ -53,18 +60,7 @@ class TourGridTile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // const SizedBox(height: 5.0),
-      
-                    // Align(
-                    //   alignment: Alignment.centerLeft,
-                    //   child: Container(
-                    //     padding: const EdgeInsets.all(2.0),
-                    //     child: Text(
-                    //       'Khởi hành ${DateFormat('dd/MM/yyyy hh:mm').format(tour.startDate)}',
-                    //       textAlign: TextAlign.left,
-                    //     ),
-                    //   ),
-                    // ),
+                    const SizedBox(height: 5.0),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
@@ -75,6 +71,29 @@ class TourGridTile extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Text(
+                          // 'Khởi hành ${DateFormat('dd/MM/yyyy hh:mm').format(tour.startDate)}',
+                          'Khởi hành: ${tour.startDate}',
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: Container(
+                    //     padding: const EdgeInsets.all(2.0),
+                    //     child: Text(
+                    //       // 'Khởi hành ${DateFormat('dd/MM/yyyy hh:mm').format(tour.startDate)}',
+                    //       'Khởi hành: ${tour.startDate}',
+                    //       textAlign: TextAlign.left,
+                    //     ),
+                    //   ),
+                    // ),
+                    
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
@@ -110,21 +129,42 @@ class TourGridTile extends StatelessWidget {
 
   Widget buildGridHeaderBar(BuildContext context) {
     return GridTileBar(
-      
-      leading: IconButton(
-          onPressed: () {
-            print("favorite");
-          },
-          icon: Icon(
-            tour.isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
-            color: Colors.red,
-          )
-        ),
-      title: const Text(""),
-      trailing: const Icon(
-        Icons.new_label,
-        color: Colors.blue,
+      leading: ValueListenableBuilder<bool>(
+        valueListenable: tour.isFavoriteListenable,
+        builder: (ctx, isFavorite, child) {
+          return IconButton(
+            onPressed: () {
+              // print("favorite");
+              ctx.read<ToursManager>().toggleFavoriteStatus(tour);
+            },
+            icon: Icon(
+              tour.isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
+              color: Colors.red,
+            )
+          );
+        },
       ),
+      title: const Text(""),
+      // trailing: const Icon(
+      //   Icons.new_label,
+      //   color: Colors.blue,
+      // ),
+      trailing: IconButton(
+            onPressed: () {
+              print("tour");
+              
+              // Navigator.of(context).pushNamed(
+              //   OrderTourScreen.routeName,
+              //   arguments: tour.id,
+              // );
+            },
+            icon: const Icon(
+              Icons.new_label,
+              color: Colors.blue,
+            )
+          )
+        
+      
     );
   }
 }

@@ -7,7 +7,7 @@ class Tour {
   // final DateTime endDate;
   final String startDate;
   final String endDate;
-  final double price;
+  final int price;
   final int slot;
   
   final String imageUrl;
@@ -43,7 +43,7 @@ class Tour {
     // DateTime? endDate,
     String? startDate,
     String? endDate,
-    double? price,
+    int? price,
     int? slot,
     bool? isFavorite
   }) {

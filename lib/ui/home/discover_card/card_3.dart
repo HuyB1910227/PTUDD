@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/ui/tours/tour_overview_screen.dart';
 
 class Card3 extends StatelessWidget {
  
@@ -24,7 +25,9 @@ class Card3 extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: () {
-            print("Tile");
+            Navigator.of(context).pushNamed(
+              TourOverviewScreen.routeName
+            );
           },
           child: Column(
             children: <Widget>[

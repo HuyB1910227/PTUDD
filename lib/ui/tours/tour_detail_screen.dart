@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hukotravel/models/tour.dart';
 import './tour_detail_card/overview.dart';
 import './tour_detail_card/notes.dart';
 import './tour_detail_card/detail.dart';
 
 class TourDetailScreen extends StatefulWidget {
-  const TourDetailScreen({Key? key}) : super(key: key);
+  static const routeName = '/tour-detail';
+  final Tour tour;
+  const TourDetailScreen(this.tour, {Key? key}) : super(key: key);
 
   @override
   State<TourDetailScreen> createState() => _TourDetailScreenState();
@@ -58,7 +61,7 @@ class _TourDetailScreenState extends State<TourDetailScreen> {
             child: SizedBox(
               height: 1000.0,
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: TabBarView(
                   children: [
                     OverView(),
