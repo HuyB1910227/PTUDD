@@ -4,26 +4,18 @@ class FavoriteItemCard extends StatelessWidget {
   String tourist = '';
   String title = '';
   String imageLink = 'imageLink';
-  FavoriteItemCard(
-    this.title,
-    this.tourist,
-    this.imageLink,
-    {super.key}
-  );
+  FavoriteItemCard(this.title, this.tourist, this.imageLink, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       constraints: const BoxConstraints.expand(
-        height: 160,
-        width: 150,
+        height: 200,
+        width: 350,
       ),
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(imageLink), 
-              fit: BoxFit.cover
-          ),
+          image:
+              DecorationImage(image: AssetImage(imageLink), fit: BoxFit.cover),
           borderRadius: const BorderRadius.all(Radius.circular(10.0))),
       child: Stack(
         alignment: Alignment.center,
@@ -32,7 +24,11 @@ class FavoriteItemCard extends StatelessWidget {
             bottom: 30,
             child: Text(
               title,
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
             ),
           ),
           Positioned(
