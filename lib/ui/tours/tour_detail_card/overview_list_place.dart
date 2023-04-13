@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OverViewListPlace extends StatelessWidget {
-  const OverViewListPlace({super.key});
+  final String subImage;
+  const OverViewListPlace(this.subImage, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +11,12 @@ class OverViewListPlace extends StatelessWidget {
         height: 160,
         width: 150,
       ),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/hanhtrinh.jpg'), fit: BoxFit.cover),
-        borderRadius: BorderRadius.all(
+          image: NetworkImage(subImage),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: const BorderRadius.all(
           Radius.circular(10.0),
         ),
       ),

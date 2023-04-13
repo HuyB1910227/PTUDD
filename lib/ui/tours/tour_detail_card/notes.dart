@@ -6,11 +6,10 @@ class Notes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           child: const Text(
             "Những thông tin cần lưu ý",
             style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hukotravel/ui/order/order_tour.dart';
 import 'package:hukotravel/ui/screens.dart';
+import 'package:hukotravel/ui/tours/tour_detail_screen.dart';
 import 'package:provider/provider.dart';
 import '../../models/tour.dart';
 import 'package:intl/intl.dart';
@@ -15,25 +16,30 @@ class TourGridTile extends StatelessWidget {
       borderRadius: BorderRadius.circular(8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black,
-              spreadRadius: 50.0,
-              blurRadius: 20,
-              offset: Offset(5, 20),
-            )
-          ]
-        ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8.0),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black,
+                spreadRadius: 50.0,
+                blurRadius: 20,
+                offset: Offset(5, 20),
+              )
+            ]),
         child: GridTile(
           header: buildGridHeaderBar(context),
           child: GestureDetector(
               onTap: () {
-                print("tour 1111111");
-                // Navigator.of(context).pushNamed(
-                //   OrderTourScreen.routeName,
-                // );
+                // print("tour 1111111");
+                Navigator.push(
+                  //push page on widget tree
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return TourDetailScreen(tour);
+                    },
+                  ),
+                );
               },
               child: Container(
                 color: Colors.white,
@@ -47,7 +53,7 @@ class TourGridTile extends StatelessWidget {
                       ),
                     ),
                     // const SizedBox(height: 8.0),
-                    
+
                     Align(
                       alignment: Alignment.center,
                       child: Container(
@@ -93,28 +99,27 @@ class TourGridTile extends StatelessWidget {
                     //     ),
                     //   ),
                     // ),
-                    
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Text(
-                          'Số chỗ: ${tour.slot}',
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                    ),
+
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: Container(
+                    //     padding: const EdgeInsets.all(2.0),
+                    //     child: Text(
+                    //       'Số chỗ: ${tour.slot}',
+                    //       textAlign: TextAlign.left,
+                    //     ),
+                    //   ),
+                    // ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
                         padding: const EdgeInsets.all(3.0),
                         child: Text(
                           '${tour.price} đ',
-                         style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber
-                         ),
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.amber),
                         ),
                       ),
                     ),
@@ -129,30 +134,31 @@ class TourGridTile extends StatelessWidget {
 
   Widget buildGridHeaderBar(BuildContext context) {
     return GridTileBar(
-      leading: ValueListenableBuilder<bool>(
-        valueListenable: tour.isFavoriteListenable,
-        builder: (ctx, isFavorite, child) {
-          return IconButton(
-            onPressed: () {
-              // print("favorite");
-              ctx.read<ToursManager>().toggleFavoriteStatus(tour);
-            },
-            icon: Icon(
-              tour.isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
-              color: Colors.red,
-            )
-          );
-        },
-      ),
-      title: const Text(""),
-      // trailing: const Icon(
-      //   Icons.new_label,
-      //   color: Colors.blue,
-      // ),
-      trailing: IconButton(
+        leading: ValueListenableBuilder<bool>(
+          valueListenable: tour.isFavoriteListenable,
+          builder: (ctx, isFavorite, child) {
+            return IconButton(
+                onPressed: () {
+                  // print("favorite");
+                  ctx.read<ToursManager>().toggleFavoriteStatus(tour);
+                },
+                icon: Icon(
+                  tour.isFavorite
+                      ? Icons.favorite
+                      : Icons.favorite_border_outlined,
+                  color: Colors.red,
+                ));
+          },
+        ),
+        title: const Text(""),
+        // trailing: const Icon(
+        //   Icons.new_label,
+        //   color: Colors.blue,
+        // ),
+        trailing: IconButton(
             onPressed: () {
               print("tour");
-              
+
               // Navigator.of(context).pushNamed(
               //   OrderTourScreen.routeName,
               //   arguments: tour.id,
@@ -161,10 +167,6 @@ class TourGridTile extends StatelessWidget {
             icon: const Icon(
               Icons.new_label,
               color: Colors.blue,
-            )
-          )
-        
-      
-    );
+            )));
   }
 }
